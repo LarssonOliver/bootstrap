@@ -1,0 +1,11 @@
+---
+- name: Install cronie
+  ansible.builtin.pacman:
+    name: cronie
+    state: present
+
+- name: Enable cronie
+  ansible.builtin.service:
+    name: cronie.service
+    enabled: true
+    state: started

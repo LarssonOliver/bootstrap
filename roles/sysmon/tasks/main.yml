@@ -1,0 +1,40 @@
+---
+- name: Install sysstat
+  ansible.builtin.pacman:
+    name: sysstat
+    state: present
+
+- name: Install glances
+  ansible.builtin.pacman:
+    name: glances
+    state: present
+
+- name: Install btop
+  ansible.builtin.pacman:
+    name: btop
+    state: present
+
+- name: Install htop
+  ansible.builtin.pacman:
+    name: htop
+    state: present
+
+- name: Install lsof
+  ansible.builtin.pacman:
+    name: lsof
+    state: present
+
+- name: Install strace
+  ansible.builtin.pacman:
+    name: strace
+    state: present
+
+- name: Install smartmontools
+  ansible.builtin.pacman:
+    name: smartmontools
+    state: present
+
+- name: Install progress
+  ansible.builtin.pacman:
+    name: progress
+    state: present

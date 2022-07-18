@@ -1,0 +1,65 @@
+---
+- name: Install OpenVPN
+  ansible.builtin.pacman:
+    name: openvpn
+    state: present
+
+- name: Install net-tools
+  ansible.builtin.pacman:
+    name: net-tools
+    state: present
+
+- name: Install bind-tools
+  ansible.builtin.pacman:
+    name: bind-tools
+    state: present
+
+- name: Install whois
+  ansible.builtin.pacman:
+    name: whois
+    state: present
+
+- name: Install netcat
+  ansible.builtin.pacman:
+    name: gnu-netcat
+    state: present
+
+- name: Install lftp
+  ansible.builtin.pacman:
+    name: lftp
+    state: present
+
+- name: Install nmap
+  ansible.builtin.pacman:
+    name: nmap
+    state: present
+
+- name: Install tcpdump
+  ansible.builtin.pacman:
+    name: tcpdump
+    state: present
+
+- name: Install sshuttle
+  ansible.builtin.pacman:
+    name: sshuttle
+    state: present
+
+- name: Install socat
+  ansible.builtin.pacman:
+    name: socat
+    state: present
+
+- name: Install nethogs
+  ansible.builtin.pacman:
+    name: nethogs
+    state: present
+
+- name: Install bmon
+  ansible.builtin.pacman:
+    name: bmon
+    state: present
+
+- name: Install spiped
+  ansible.builtin.pacman:
+    name: spiped
+    state: present

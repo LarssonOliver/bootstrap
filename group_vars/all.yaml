@@ -1,0 +1,236 @@
+user:
+  name: oliver
+  uid: 1000
+  group: oliver
+  shell: /usr/bin/zsh
+  email: oliver.e.larsson@gmail.com
+  log:
+    dir: log
+    rotate: 8
+
+hostname: ratchet
+
+interception:
+  caps2esc:
+    enabled: True
+    mode: 1
+    delay: 20000
+
+# dotfiles:
+#     url: git@github.com:pigmonkey/dotfiles.git
+#     destination: projects/dotfiles
+#     rcup_flags: -fx README.md
+
+aur:
+  dir: aur
+  packages:
+    - yay
+
+ssh:
+  port: 22
+  # user_key: /root/id_rsa
+  enable_sshd: True
+
+gnupg:
+  enable_agent: True
+  emulate_ssh: True
+
+# mail:
+#     sync_tool: isync
+#     sync_pim: True
+#     sync_taskwarrior: True
+#     sync_notmuch: False
+#     sync_time: 10min
+#     sync_boot_delay: 2min
+#     sync_on: trusted
+
+network:
+  spoof_mac: True
+  # conn_check:
+  #     interval: 0
+#     trusted_uuid:
+#         - 39744b35-2f2f-4a18-9da4-7542a56c28c2
+#         - d2642f7e-9e58-4b00-82f8-26b4ef76a54e
+#         - b21284e6-01af-492f-8bea-45a69ef22a23
+#         - f74f2bd5-8748-4e1e-98f9-dae2dd44b916
+
+editors:
+  pacman:
+    - vi
+    - nano
+    - vim
+    - neovim
+  aur:
+    - visual-studio-code-bin
+
+video_drivers:
+  - intel-media-driver
+
+base_packages:
+  - base-devel
+  - man-db
+  - man-pages
+  - pacman-contrib
+  - git
+  - rsync
+  - coreutils
+  - moreutils
+  - dateutils
+  - ruby
+  - screen
+  - cpulimit
+
+filesystem_packages:
+  - exfat-utils
+  - gparted
+
+passwordless_sudo:
+  - /usr/bin/openvpn*
+
+# tarsnapper:
+#     deltas: 1h 1d 7d 30d 365d
+#     period: DAILY
+#     ac_only: True
+#     run_on: trusted
+#     random_delay: 600
+
+# gitannex:
+#     stop_on_untrusted: True
+
+# bitlbee:
+#     run_on: trusted
+#     torify: True
+
+bootloader: grub
+
+# postgresql:
+#     enable: True
+#     root: /home/postgres
+
+# fingerprint: False
+
+# etesync: False
+
+# tor:
+#     run_on: trusted
+
+# localtime:
+#     run_on: trusted
+
+# bluetooth:
+#     disable: False
+
+# cryptshot:
+#     - name: alta
+#       uuid: 0a0db776-84c5-48e1-9079-cacfbc5de8a3
+#       keyfile: /home/pigmonkey/.keys/usb-alta.key
+#       retain:
+#           - level: daily
+#             interval: 7
+#           - level: weekly
+#             interval: 6
+#           - level: monthly
+#             interval: 3
+#     - name: bishorn
+#       uuid: baeb40a2-b19e-4adc-8ef6-44ee720a4d1a
+#       keyfile: /home/pigmonkey/.keys/usb-bishorn.key
+#       retain:
+#           - level: daily
+#             interval: 7
+#           - level: weekly
+#             interval: 6
+#           - level: monthly
+#             interval: 3
+#     - name: palisade
+#       uuid: 9d4ada7c-2c47-4de9-b8d5-1c4158bd3031
+#       keyfile: /home/pigmonkey/.keys/usb-palisade.key
+#       retain:
+#           - level: daily
+#             interval: 7
+#           - level: weekly
+#             interval: 6
+#           - level: monthly
+#             interval: 3
+#     - name: pilchuck
+#       uuid: d96a0fc3-7ea1-42f7-b0d0-42e573c478bd
+#       keyfile: /home/pigmonkey/.keys/usb-pilchuck.key
+#       retain:
+#           - level: daily
+#             interval: 7
+#           - level: weekly
+#             interval: 6
+#           - level: monthly
+#             interval: 3
+
+journal:
+  max_size: 256M
+
+# udisks:
+#     auto_mount: False
+#     shared_mount: True
+
+# hostsctl:
+#     url: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+
+# himawaripy:
+#     run_time: 15min
+#     run_boot_delay: 2min
+#     run_on: never
+#     flags: --auto-offset --level 4
+
+# goesimage:
+#     run_time: 15min
+#     run_boot_delay: 2min
+#     run_on: trusted
+#     flags: -w -e
+
+libinput:
+  # middle_click_scroll: 12
+  # button_mapping: "1 2 3 4 5 6 7 8 9 10 11 2"
+
+base_fonts:
+  - adobe-source-code-pro-fonts
+  - cantarell-fonts
+  - gsfonts
+  - noto-fonts
+  - terminus-font
+  - tex-gyre-fonts
+  - ttf-caladea
+  - ttf-carlito
+  - ttf-dejavu
+  - ttf-droid
+  - ttf-fira-mono
+  - ttf-ibm-plex
+  - ttf-inconsolata
+  - ttf-liberation
+  - ttf-opensans
+  - ttf-ubuntu-font-family
+
+aur_fonts:
+  - ttf-bitstream-charter
+  - ttf-cooper-hewitt
+  - ttf-courier-prime
+  - ttf-heuristica
+  - ttf-merriweather
+  - ttf-merriweather-sans
+  - ttf-oswald
+  - ttf-quintessential
+  - ttf-signika
+
+# syncthing:
+#     run_on: trusted
+#     open_ports: true
+
+# mirrorlist:
+#     run_on: trusted
+
+# units:
+#     run_on: trusted
+
+# pkgfile:
+#     run_on: trusted
+
+# hardened:
+#     enable_namespaces: true
+
+kernel_parameters: "quiet consoleblank=60"

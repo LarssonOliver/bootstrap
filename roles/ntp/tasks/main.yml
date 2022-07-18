@@ -1,0 +1,28 @@
+---
+- name: Install chrony
+  ansible.builtin.pacman:
+    name: chrony
+    state: present
+
+- name: Install chrony networkmanager dispatcher
+  become: true
+  become_user: "{{ user.name }}"
+  yay:
+    name: networkmanager-dispatcher-chrony
+  tags:
+    - aur
+    - networkmanager
+
+- name: Push chrony configuration file
+  ansible.builtin.copy:
+    src: chrony.conf
+    dest: /etc/chrony.conf
+    mode: 0644
+  notify:
+    - restart chrony
+
+- name: Enable and start chrony
+  ansible.builtin.service:
+    name: chronyd.service
+    enabled: true
+    state: started

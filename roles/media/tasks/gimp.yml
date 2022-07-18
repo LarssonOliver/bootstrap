@@ -1,0 +1,19 @@
+---
+- name: Install poppler-glib
+  pacman: name=poppler-glib state=present
+  tags:
+    - gimp
+
+- name: Install GIMP
+  pacman:
+    name:
+      - gimp
+      - gimp-plugin-gmic
+    state: present
+  tags:
+    - gimp
+
+- name: Install GIMP raw support
+  pacman: name=gimp-nufraw state=present
+  tags:
+    - gimp

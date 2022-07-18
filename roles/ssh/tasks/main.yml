@@ -1,0 +1,81 @@
+---
+- name: Install OpenSSH
+  ansible.builtin.pacman:
+    name: openssh
+    state: present
+
+- name: Push OpenSSH daemon configuration file
+  ansible.builtin.template:
+    src: sshd_config.j2
+    dest: /etc/ssh/sshd_config
+    mode: 0644
+  notify:
+    - restart sshd
+
+- name: Enable and start OpenSSH
+  ansible.builtin.service:
+    name: sshd.service
+    enabled: true
+    state: started
+  when: ssh.enable_sshd
+
+- name: Disable and stop OpenSSH
+  ansible.builtin.service:
+    name: sshd.service
+    enabled: false
+    state: stopped
+  when: ssh.enable_sshd
+
+- name: Install sshfs
+  ansible.builtin.pacman:
+    name: sshfs
+    state: present
+
+- name: Install autossh
+  ansible.builtin.pacman:
+    name: autossh
+    state: present
+
+- name: Copy fuse configuration file
+  ansible.builtin.copy:
+    src: fuse.conf
+    dest: /etc/fuse.conf
+    mode: 0644
+
+- name: Install keychain
+  ansible.builtin.pacman:
+    name: keychain
+    state: present
+
+- name: Install x11-ask-pass
+  ansible.builtin.pacman:
+    name: x11-ssh-askpass
+    state: present
+
+- name: Export SSH_ASKPASS environment variable
+  ansible.builtin.lineinfile:
+    dest: /etc/profile
+    state: present
+    line: 'export SSH_ASKPASS="/usr/lib/ssh/x11-ssh-askpass"'
+
+- name: Make directory for user SSH key
+  ansible.builtin.file:
+    path: /home/{{ user.name }}/.ssh
+    state: directory
+    owner: "{{ user.name }}"
+    group: "{{ user.group }}"
+    mode: 0700
+
+- name: Install user SSH key
+  ansible.builtin.copy:
+    src: "{{ ssh.user_key }}"
+    dest: /home/{{ user.name }}/.ssh/
+    mode: 0600
+    owner: "{{ user.name }}"
+    group: "{{ user.group }}"
+  when: ssh.user_key is defined
+
+- name: Install Mosh
+  ansible.builtin.pacman:
+    name: mosh
+    state: present

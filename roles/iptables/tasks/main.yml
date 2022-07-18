@@ -1,0 +1,28 @@
+---
+- name: Push ipv4 firewall config
+  ansible.builtin.template:
+    src: iptables.rules.j2
+    dest: /etc/iptables/iptables.rules
+    mode: 0644
+  notify:
+    - restart iptables
+
+- name: Enable and start iptables
+  ansible.builtin.service:
+    name: iptables.service
+    enabled: true
+    state: started
+
+- name: Push ipv6 firewall config
+  ansible.builtin.template:
+    src: ip6tables.rules.j2
+    dest: /etc/iptables/ip6tables.rules
+    mode: 0644
+  notify:
+    - restart ip6tables
+
+- name: Enable and start ip6tables
+  ansible.builtin.service:
+    name: ip6tables.service
+    enabled: true
+    state: started

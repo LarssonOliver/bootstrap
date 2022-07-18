@@ -1,0 +1,10 @@
+---
+- name: Install aspell
+  pacman:
+    name:
+      - aspell
+      - aspell-en
+      - aspell-sv
+    state: present
+  tags:
+    - aspell

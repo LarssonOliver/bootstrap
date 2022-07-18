@@ -1,0 +1,14 @@
+---
+- name: Install editors
+  pacman:
+    name: "{{ editors.pacman }}"
+    state: present
+
+- name: Install AUR editors
+  yay:
+    name: "{{ editors.aur }}"
+    state: present
+  become: true
+  become_user: "{{ user.name }}"
+  tags:
+    - aur

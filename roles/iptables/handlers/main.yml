@@ -1,0 +1,10 @@
+---
+- name: restart iptables
+  ansible.builtin.service:
+    name: iptables.service
+    state: restarted
+
+- name: restart ip6tables
+  ansible.builtin.service:
+    name: ip6tables.service
+    state: restarted

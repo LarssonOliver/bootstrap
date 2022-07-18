@@ -1,0 +1,26 @@
+---
+- name: Install rcm
+  become: true
+  become_user: "{{ user.name }}"
+  yay:
+    name: rcm
+  when: dotfiles is defined
+  tags:
+    - aur
+
+- name: Clone user dotfiles
+  ansible.builtin.git:
+    repo: "{{ dotfiles.url }}"
+    dest: /home/{{ user.name }}/{{ dotfiles.destination }}
+    accept_hostkey: true
+    update: false
+    version: origin/HEAD
+  when: dotfiles is defined
+  become: true
+  become_user: "{{ user.name }}"
+
+- name: Install user dotfiles
+  ansible.builtin.command: rcup -d /home/{{ user.name }}/{{ dotfiles.destination }} {{ dotfiles.rcup_flags }}
+  when: dotfiles is defined
+  become: true
+  become_user: "{{ user.name }}"

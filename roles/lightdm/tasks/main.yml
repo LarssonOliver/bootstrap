@@ -1,0 +1,45 @@
+---
+- name: Install LightDM
+  ansible.builtin.pacman:
+    name:
+      - lightdm
+      - lightdm-gtk-greeter
+    state: present
+
+- name: Enable LightDM
+  ansible.builtin.service:
+    name: lightdm.service
+    enabled: true
+
+- name: Create background dir
+  ansible.builtin.file:
+    path: /usr/share/backgrounds
+    state: directory
+    mode: 0777
+
+- name: Push LightDM greeter background
+  ansible.builtin.copy:
+    src: onosendai.jpg
+    dest: /usr/share/backgrounds/onosendai.jpg
+    mode: 0444
+
+- name: Specify LightDM greeter background
+  ansible.builtin.lineinfile:
+    dest: /etc/lightdm/lightdm-gtk-greeter.conf
+    regexp: "^background="
+    state: present
+    line: "background=/usr/share/backgrounds/onosendai.jpg"
+
+- name: Hide user images
+  ansible.builtin.lineinfile:
+    dest: /etc/lightdm/lightdm-gtk-greeter.conf
+    regexp: "^hide-user-image="
+    state: present
+    line: "hide-user-image=true"
+
+- name: Force LightDM greeter theme
+  ansible.builtin.lineinfile:
+    dest: /usr/share/xgreeters/lightdm-gtk-greeter.desktop
+    regexp: "^Exec="
+    state: present
+    line: "Exec=env GTK_THEME=Adwaita:dark lightdm-gtk-greeter"

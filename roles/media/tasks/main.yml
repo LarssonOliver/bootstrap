@@ -1,0 +1,4 @@
+---
+- include: imagemagick.yml
+- include: gimp.yml
+- include: feh.yml

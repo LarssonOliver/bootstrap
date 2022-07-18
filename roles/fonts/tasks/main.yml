@@ -1,0 +1,52 @@
+---
+- name: Install freetype2
+  ansible.builtin.pacman:
+    name: freetype2
+    state: present
+
+- name: Install cairo
+  ansible.builtin.pacman:
+    name: cairo
+    state: present
+
+- name: Install fontconfig
+  ansible.builtin.pacman:
+    name: fontconfig
+    state: present
+
+- name: Enable LCD filter
+  ansible.builtin.file:
+    src: /usr/share/fontconfig/conf.avail/11-lcdfilter-default.conf
+    dest: /etc/fonts/conf.d/11-lcdfilter-default.conf
+    state: link
+
+- name: Enable sub-pixel rendering
+  ansible.builtin.file:
+    src: /usr/share/fontconfig/conf.avail/10-sub-pixel-rgb.conf
+    dest: /etc/fonts/conf.d/10-sub-pixel-rgb.conf
+    state: link
+
+- name: Enable hinting
+  ansible.builtin.file:
+    src: /usr/share/fontconfig/conf.avail/10-hinting-slight.conf
+    dest: /etc/fonts/conf.d/10-hinting-slight.conf
+    state: link
+
+- name: Push font substitutions
+  ansible.builtin.copy:
+    src: local.conf
+    dest: /etc/fonts/local.conf
+    mode: 0644
+
+- name: Install base fonts
+  ansible.builtin.pacman:
+    name: "{{ base_fonts }}"
+    state: present
+
+- name: Install AUR fonts
+  become: true
+  become_user: "{{ user.name }}"
+  yay:
+    name: "{{ aur_fonts }}"
+  tags:
+    - aur
