@@ -19,8 +19,8 @@
 
 - name: Push LightDM greeter background
   ansible.builtin.copy:
-    src: onosendai.jpg
-    dest: /usr/share/backgrounds/onosendai.jpg
+    src: lightdm_background.png
+    dest: /usr/share/backgrounds/lightdm_background.png
     mode: 0444
 
 - name: Specify LightDM greeter background
@@ -28,7 +28,7 @@
     dest: /etc/lightdm/lightdm-gtk-greeter.conf
     regexp: "^background="
     state: present
-    line: "background=/usr/share/backgrounds/onosendai.jpg"
+    line: "background=/usr/share/backgrounds/lightdm_background.png"
 
 - name: Hide user images
   ansible.builtin.lineinfile:
