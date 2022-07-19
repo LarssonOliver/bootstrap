@@ -27,4 +27,4 @@
     name: macchiato.service
     enabled: false
     state: stopped
-  when: network.spoof_mac
+  when: not network.spoof_mac
