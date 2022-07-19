@@ -44,6 +44,11 @@
     name: arandr
     state: present
 
+- name: Install brightnessctl
+  ansible.builtin.pacman:
+    name: brightnessctl
+    state: present
+
 - name: Install video driver(s)
   ansible.builtin.pacman:
     name: "{{ video_drivers }}"
