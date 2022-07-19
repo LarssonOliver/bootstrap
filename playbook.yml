@@ -21,6 +21,7 @@
     - { role: lightdm, tags: ["lightdm"] }
     - { role: i3, tags: ["i3"] }
     - { role: gtk, tags: ["gtk"] }
+    - { role: screensaver, tags: ["screensaver"] }
     - { role: iptables, tags: ["iptables"] }
     - { role: nettools, tags: ["nettools"] }
     - { role: networkmanager, tags: ["networkmanager"] }
