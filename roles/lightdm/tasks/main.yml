@@ -42,4 +42,4 @@
     dest: /usr/share/xgreeters/lightdm-gtk-greeter.desktop
     regexp: "^Exec="
     state: present
-    line: "Exec=env GTK_THEME=Adwaita:dark lightdm-gtk-greeter"
+    line: "Exec=env GTK_THEME=Nordic-darker:dark lightdm-gtk-greeter"
