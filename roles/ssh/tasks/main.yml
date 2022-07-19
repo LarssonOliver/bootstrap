@@ -24,7 +24,7 @@
     name: sshd.service
     enabled: false
     state: stopped
-  when: ssh.enable_sshd
+  when: not ssh.enable_sshd
 
 - name: Install sshfs
   ansible.builtin.pacman:
