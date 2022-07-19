@@ -1,0 +1,7 @@
+---
+- name: Install picom
+  ansible.builtin.pacman:
+    name: picom
+    state: present
+  tags:
+    - picom

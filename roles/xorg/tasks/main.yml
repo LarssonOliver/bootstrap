@@ -84,3 +84,4 @@
 - include: autorandr.yml
 - include: autocutsel.yml
 - include: xdg.yml
+- include: picom.yml
