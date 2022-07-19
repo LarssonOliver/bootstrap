@@ -1,4 +1,9 @@
 ---
+- name: Install vlc
+  ansible.builtin.pacman:
+    name: vlc
+    state: present
+
 - include: imagemagick.yml
 - include: gimp.yml
 - include: feh.yml
