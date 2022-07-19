@@ -1,0 +1,19 @@
+---
+- name: Install gtk
+  ansible.builtin.pacman:
+    name:
+      - gtk2
+      - gtk3
+    state: present
+
+- name: Install lxappearance
+  ansible.builtin.pacman:
+    name: lxappearance
+    state: present
+
+- name: Clone nordic theme
+  ansible.builtin.git:
+    repo: https://github.com/EliverLara/Nordic.git
+    dest: /usr/share/themes/Nordic-darker
+    update: true
+    version: darker/HEAD
