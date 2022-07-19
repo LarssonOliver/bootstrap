@@ -39,6 +39,11 @@
     name: xautomation
     state: present
 
+- name: Install arandr
+  ansible.builtin.pacman:
+    name: arandr
+    state: present
+
 - name: Install video driver(s)
   ansible.builtin.pacman:
     name: "{{ video_drivers }}"

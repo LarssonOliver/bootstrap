@@ -12,6 +12,11 @@
       - pavucontrol
     state: present
 
+- name: Install playerctl
+  pacman:
+    name: playerctl
+    state: present
+
 - name: Install pasystray
   pacman:
     name: pasystray

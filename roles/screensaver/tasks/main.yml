@@ -5,6 +5,7 @@
       - scrot
       - imagemagick
       - i3lock
+      - xss-lock
     state: present
 
 - name: Push lock script
