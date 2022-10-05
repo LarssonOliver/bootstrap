@@ -78,8 +78,6 @@ filesystem_packages:
 passwordless_sudo:
   - /usr/bin/openvpn*
 
-bootloader: grub
-
 bluetooth:
   disable: False
 

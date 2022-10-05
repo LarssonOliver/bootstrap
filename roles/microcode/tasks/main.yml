@@ -3,5 +3,3 @@
   ansible.builtin.pacman:
     name: intel-ucode
     state: present
-  notify:
-    - rebuild grub
