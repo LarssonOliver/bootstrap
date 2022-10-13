@@ -4,22 +4,6 @@
     name: libreoffice-fresh
     state: present
 
-- name: Install enscript
-  pacman:
-    name: enscript
-    state: present
-
-- name: Install Simple Scan
-  pacman:
-    name: simple-scan
-    state: present
-
-- name: Install pandoc and dependencies
-  pacman:
-    name:
-      - pandoc
-    state: present
-
 - name: Install texlive-core
   pacman:
     name: texlive-core

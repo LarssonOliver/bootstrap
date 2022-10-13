@@ -62,26 +62,8 @@
   tags:
     - user
 
-- name: Enable middle-click scrolling
-  ansible.builtin.template:
-    src: 30-scroll.conf
-    dest: /etc/X11/xorg.conf.d/30-scroll.conf
-    mode: 0644
-  when: libinput.middle_click_scroll is defined
-  tags:
-    - libinput
-
-- name: Remap mouse buttons
-  ansible.builtin.template:
-    src: 30-button_mapping.conf
-    dest: /etc/X11/xorg.conf.d/30-button_mapping.conf
-    mode: 0644
-  when: libinput.button_mapping is defined
-  tags:
-    - libinput
-
-- include: unclutter.yml
-- include: autorandr.yml
-- include: autocutsel.yml
-- include: xdg.yml
-- include: picom.yml
+- include_tasks: unclutter.yml
+- include_tasks: autorandr.yml
+- include_tasks: autocutsel.yml
+- include_tasks: xdg.yml
+- include_tasks: picom.yml

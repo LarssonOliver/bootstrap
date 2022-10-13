@@ -3,3 +3,4 @@
   ansible.builtin.pacman:
     name: intel-ucode
     state: present
+  when: "'GenuineIntel' in ansible_processor"

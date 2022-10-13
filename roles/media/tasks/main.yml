@@ -4,6 +4,6 @@
     name: vlc
     state: present
 
-- include: imagemagick.yml
-- include: gimp.yml
-- include: feh.yml
+- include_tasks: imagemagick.yml
+- include_tasks: gimp.yml
+- include_tasks: feh.yml
