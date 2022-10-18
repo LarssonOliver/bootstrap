@@ -1,0 +1,38 @@
+---
+- name: Create AUR directory
+  ansible.builtin.file:
+    path: /home/{{ user.name }}/aur
+    state: directory
+    owner: "{{ user.name }}"
+    group: "{{ user.group }}"
+    mode: 0766
+  tags:
+    - aur
+
+- name: Clone yay
+  become: true
+  become_user: "{{ user.name }}"
+  ansible.builtin.git:
+    repo: https://aur.archlinux.org/yay.git
+    dest: /home/{{ user.name }}/aur/yay
+    version: master # The arch mirror has master as default branch.
+  tags:
+    - aur
+
+- name: Install yay
+  become: true
+  become_user: "{{ user.name }}"
+  ansible.builtin.command:
+    chdir: /home/{{ user.name }}/aur/yay
+    cmd: "makepkg -si --noconfirm"
+    creates: /usr/bin/yay
+  tags:
+    - aur
+
+- name: Make yay track itself
+  become: true
+  become_user: "{{ user.name }}"
+  yay:
+    name: yay
+  tags:
+    - aur

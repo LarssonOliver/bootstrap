@@ -1,5 +1,0 @@
----
-- name: Install gnupg
-  ansible.builtin.pacman:
-    name: gnupg
-    state: present

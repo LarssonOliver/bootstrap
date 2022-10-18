@@ -1,0 +1,13 @@
+---
+- name: Make yay track itself
+  become: true
+  become_user: "{{ user.name }}"
+  yay:
+    name: ly
+  tags:
+    - aur
+
+- name: Enable ly service
+  ansible.builtin.service:
+    name: ly.service
+    enabled: true

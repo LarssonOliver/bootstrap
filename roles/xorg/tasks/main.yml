@@ -62,8 +62,8 @@
   tags:
     - user
 
-- include_tasks: unclutter.yml
-- include_tasks: autorandr.yml
-- include_tasks: autocutsel.yml
-- include_tasks: xdg.yml
-- include_tasks: picom.yml
+- ansible.builtin.include_tasks: unclutter.yml
+- ansible.builtin.include_tasks: autorandr.yml
+- ansible.builtin.include_tasks: autocutsel.yml
+- ansible.builtin.include_tasks: xdg.yml
+- ansible.builtin.include_tasks: picom.yml

@@ -6,11 +6,11 @@
     mode: 0644
 
 - name: Refresh pacman mirrors
-  pacman:
+  community.general.pacman:
     update_cache: true
 
 - name: Install inetutils for hostname
-  pacman:
+  community.general.pacman:
     name: inetutils
     state: present
 
@@ -19,8 +19,8 @@
     name: "{{ hostname }}"
   when: hostname is defined
 
-- import_tasks: shell.yml
-- import_tasks: user.yml
-- import_tasks: sudo.yml
-- import_tasks: packages.yml
-- import_tasks: journal.yml
+- ansible.builtin.import_tasks: shell.yml
+- ansible.builtin.import_tasks: user.yml
+- ansible.builtin.import_tasks: sudo.yml
+- ansible.builtin.import_tasks: packages.yml
+- ansible.builtin.import_tasks: journal.yml

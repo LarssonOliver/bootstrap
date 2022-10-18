@@ -13,11 +13,6 @@ user:
 #     destination: projects/dotfiles
 #     rcup_flags: -fx README.md
 
-aur:
-  dir: aur
-  packages:
-    - yay
-
 ssh:
   port: 22
   enable_sshd: True
@@ -50,12 +45,14 @@ base_packages:
   - ruby
   - screen
   - cpulimit
+  - htop
+  - gnupg
 
 passwordless_sudo:
   - /usr/bin/openvpn*
 
 bluetooth:
-  disable: True
+  disable: False
 
 journal:
   max_size: 256M
@@ -93,5 +90,3 @@ fonts:
     - ttf-quintessential
     - ttf-signika
     - nerd-fonts-complete
-
-kernel_parameters: "quiet consoleblank=60"

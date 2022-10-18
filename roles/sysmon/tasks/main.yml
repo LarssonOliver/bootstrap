@@ -1,5 +1,0 @@
----
-- name: Install htop
-  ansible.builtin.pacman:
-    name: htop
-    state: present
