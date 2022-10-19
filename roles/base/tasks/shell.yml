@@ -12,7 +12,7 @@
   pacman:
     name:
       - zsh
-      - zsh-completions
+      - starship
     state: present
   tags:
     - shell

@@ -7,6 +7,15 @@
       - i3lock
       - i3status
       - dmenu
+      - feh
+    state: present
+
+- name: Install i3block script dependencies
+  ansible.builtin.pacman:
+    name:
+      - acpi
+      - sysstat
+      # - xkb-switch # aur
     state: present
 
 - name: Verify that default applications file exists

@@ -42,11 +42,11 @@ base_packages:
   - coreutils
   - moreutils
   - dateutils
-  - ruby
   - screen
   - cpulimit
   - htop
   - gnupg
+  - tldr
 
 passwordless_sudo:
   - /usr/bin/openvpn*
