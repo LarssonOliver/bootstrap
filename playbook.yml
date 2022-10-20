@@ -30,6 +30,8 @@
     - { role: virtualbox, tags: ["virtualbox"] }
     - { role: sound, tags: ["sound"] }
     - { role: bluetooth, tags: ["bluetooth"] }
+    - { role: docker, tags: ["docker"] }
+    - { role: kubernetes, tags: ["kubernetes"] }
 
   vars_prompt:
     - name: user_password

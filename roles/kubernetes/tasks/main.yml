@@ -1,0 +1,22 @@
+---
+- name: Install kubectl
+  ansible.builtin.pacman:
+    name: kubectl
+    state: present
+
+- name: Install kubeseal
+  ansible.builtin.pacman:
+    name: kubeseal
+    state: present
+
+- name: Install helm
+  ansible.builtin.pacman:
+    name: helm
+    state: present
+
+- name: Install kind
+  yay:
+    name: kind
+    state: present
+  tags:
+    - aur
