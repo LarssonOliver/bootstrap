@@ -8,17 +8,14 @@ user:
     dir: log
     rotate: 8
 
-# dotfiles:
-#     url: git@github.com:pigmonkey/dotfiles.git
-#     destination: projects/dotfiles
-#     rcup_flags: -fx README.md
+dotfiles:
+  url: git@github.com:larssonoliver/dotfiles.git
+  destination: dev/dotfiles
+  install_script: install
 
 ssh:
   port: 22
   enable_sshd: True
-
-network:
-  spoof_mac: True
 
 editors:
   pacman:
@@ -57,7 +54,7 @@ bluetooth:
 journal:
   max_size: 256M
 
-udisks:
+usbmount:
   auto_mount: True
   shared_mount: True
 

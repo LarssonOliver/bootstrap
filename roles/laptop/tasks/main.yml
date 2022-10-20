@@ -1,13 +1,28 @@
 ---
-- include_tasks: tlp.yml
+- name: Install acpi
+  pacman:
+    name: acpi
+    state: present
+
+- name: Check if laptop (by checking if battery is present)
+  ansible.builtin.command:
+    cmd: acpi
+  register: acpi_output
+
+- name: Configure TLP
+  include_tasks: tlp.yml
+  when: acpi_output.stdout != ""
 
 - name: Copy touchpad configuration file
   copy: src=30-touchpad.conf dest=/etc/X11/xorg.conf.d/30-touchpad.conf
   tags:
     - libinput
+  when: acpi_output.stdout != ""
 
 - name: Copy logind configuration file
   copy: src=logind.conf dest=/etc/systemd/logind.conf
+  when: acpi_output.stdout != ""
 
 - name: Install powertop
   pacman: name=powertop state=present
+  when: acpi_output.stdout != ""

@@ -8,6 +8,9 @@
       - i3status
       - dmenu
       - feh
+      - xss-lock
+      - imagemagick
+      - scrot
     state: present
 
 - name: Install i3block script dependencies

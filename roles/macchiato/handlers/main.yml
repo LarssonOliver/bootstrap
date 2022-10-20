@@ -1,6 +1,0 @@
----
-- name: start macchiato
-  ansible.builtin.service:
-    name: macchiato.service
-    state: started
-  when: network.spoof_mac

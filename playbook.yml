@@ -8,29 +8,26 @@
     - { role: cron, tags: ["cron"] }
     - { role: microcode, tags: ["microcode"] }
     - { role: ssh, tags: ["ssh"] }
-    # - { role: dotfiles, tags: ["dotfiles"] }
+    - { role: dotfiles, tags: ["dotfiles"] }
     - { role: interception, tags: ["interception"] }
     - { role: fonts, tags: ["fonts"] }
     - { role: xorg, tags: ["xorg"] }
     - { role: terminal, tags: ["terminal"] }
     - { role: ly, tags: ["ly"] }
     - { role: i3, tags: ["i3"] }
-    - { role: screensaver, tags: ["screensaver"] }
     - { role: gtk, tags: ["gtk"] }
     - { role: iptables, tags: ["iptables"] }
     - { role: networkmanager, tags: ["networkmanager"] }
     - { role: ntp, tags: ["ntp"] }
     - { role: editors, tags: ["editors"] }
     - { role: archive, tags: ["archive"] }
-    # - { role: spell, tags: ["spell"] }
-    # - { role: udisks, tags: ["udisks"] }
+    - { role: usbmount, tags: ["usbmount"] }
     - { role: browsers, tags: ["browsers"] }
-    # - { role: media, tags: ["media"] }
-    # - { role: laptop, tags: ["laptop"] }
-    # - { role: office, tags: ["office"] }
+    - { role: media, tags: ["media"] }
+    - { role: laptop, tags: ["laptop"] }
+    - { role: office, tags: ["office"] }
     - { role: pdf, tags: ["pdf"] }
     - { role: virtualbox, tags: ["virtualbox"] }
-    # - { role: golang, tags: ["golang"] }
     - { role: sound, tags: ["sound"] }
     - { role: bluetooth, tags: ["bluetooth"] }
 
