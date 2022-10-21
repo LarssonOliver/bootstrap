@@ -1,1 +1,1 @@
-ENV{ID_FS_USAGE}=="filesystem|other|crypto", ENV{UDISKS_FILESYSTEM_SHARED}="{% if udisks.shared_mount %}1{% else %}0{% endif %}"
+ENV{ID_FS_USAGE}=="filesystem|other|crypto", ENV{UDISKS_FILESYSTEM_SHARED}="{% if usbmount.shared_mount %}1{% else %}0{% endif %}"
