@@ -15,8 +15,9 @@
     state: present
 
 - name: Install kind
+  become: true
+  become_user: "{{ user.name }}"
   yay:
     name: kind
-    state: present
   tags:
     - aur

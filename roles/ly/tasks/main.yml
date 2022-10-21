@@ -1,5 +1,5 @@
 ---
-- name: Make yay track itself
+- name: Install ly
   become: true
   become_user: "{{ user.name }}"
   yay:
