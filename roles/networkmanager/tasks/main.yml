@@ -27,8 +27,3 @@
     name: NetworkManager-dispatcher.service
     enabled: true
     state: started
-
-- name: Disable dhcpcd service
-  ansible.builtin.service:
-    name: dhcpcd.service
-    enabled: false
