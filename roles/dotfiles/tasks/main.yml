@@ -4,7 +4,7 @@
     repo: "{{ dotfiles.url }}"
     dest: /home/{{ user.name }}/{{ dotfiles.destination }}
     accept_hostkey: true
-    update: false
+    update: true
     version: origin/{{ dotfiles.version }}
   when: dotfiles is defined
   become: true
