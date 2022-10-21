@@ -5,7 +5,7 @@
     dest: /home/{{ user.name }}/{{ dotfiles.destination }}
     accept_hostkey: true
     update: false
-    version: origin/HEAD
+    version: origin/{{ dotfiles.version }}
   when: dotfiles is defined
   become: true
   become_user: "{{ user.name }}"

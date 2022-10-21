@@ -9,7 +9,8 @@ user:
     rotate: 8
 
 dotfiles:
-  url: git@github.com:larssonoliver/dotfiles.git
+  url: https://github.com/larssonoliver/dotfiles
+  version: bootstrap
   destination: dev/dotfiles
   install_script: install
 
