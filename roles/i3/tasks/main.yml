@@ -11,6 +11,7 @@
       - xss-lock
       - imagemagick
       - scrot
+      - dunst
     state: present
 
 - name: Install i3block script dependencies
