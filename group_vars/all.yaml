@@ -27,6 +27,12 @@ editors:
   aur:
     - visual-studio-code-bin
 
+lsp_servers:
+  pacman:
+    - lua-language-server
+    - bash-language-server
+    - shellcheck # Needed by bash-language-server
+
 video_drivers:
   - intel-media-driver
 

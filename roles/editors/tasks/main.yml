@@ -12,3 +12,8 @@
   become_user: "{{ user.name }}"
   tags:
     - aur
+
+- name: Install Language Servers
+  pacman:
+    name: "{{ lsp_servers.pacman }}"
+    state: present
