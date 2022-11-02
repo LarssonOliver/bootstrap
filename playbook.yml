@@ -38,3 +38,4 @@
       prompt: "Enter user password"
     - name: hostname
       prompt: "Enter machine hostname"
+      private: false
