@@ -1,0 +1,39 @@
+#!/usr/bin/bash
+
+if [ ! "$(command -v ansible-playbook)" ]; then
+    echo "You need to install ansible first. Exiting..."
+    exit 1
+fi
+
+if [ "$(id -u)" -ne 0 ]; then
+    echo "This script should be run as root. Exiting..."
+    exit 1
+fi
+
+SCRIPTDIR=$(dirname "$0")
+
+EXTRA_ARGS=()
+
+if [ "$(command -v yq)" ]; then
+    VARS_FILE="$SCRIPTDIR/group_vars/all.yaml"
+
+    USER_NAME=$(yq '.user.name' "$VARS_FILE" | cut -d\" -f2)
+    USER_ID=$(yq '.user.uid' "$VARS_FILE")
+
+    if [ "$(id -u "$USER_NAME")" -eq "$USER_ID" ]; then
+        # Skipping user creation
+        EXTRA_ARGS+=(
+            --skip-tags user
+            -e "user_password=foo"
+        )
+
+        # Assuming hostname is already set when user exists
+
+        EXTRA_ARGS+=(-e "hostname=$(hostname)")
+    fi
+fi
+
+ansible-playbook -i "$SCRIPTDIR"/localhost.ini \
+    "$SCRIPTDIR"/playbook.yml \
+    "${EXTRA_ARGS[@]}"
+
