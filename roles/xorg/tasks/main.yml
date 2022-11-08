@@ -24,6 +24,11 @@
     name: xorg-xev
     state: present
 
+- name: Install xclip
+  ansible.builtin.pacman:
+    name: xclip
+    state: present
+
 - name: Install xorg-sessreg
   ansible.builtin.pacman:
     name: xorg-sessreg
