@@ -29,6 +29,11 @@
     name: xclip
     state: present
 
+- name: Install xdiskusage
+  ansible.builtin.pacman:
+    name: xdiskusage
+    state: present
+
 - name: Install xorg-sessreg
   ansible.builtin.pacman:
     name: xorg-sessreg
