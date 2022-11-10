@@ -1,0 +1,13 @@
+- name: Install QT 
+  ansible.builtin.pacman:
+    name:
+      - qt5-base
+    state: present
+
+- name: Install styleplugins
+  become: true
+  become_user: "{{ user.name }}"
+  yay:
+    name: qt5-styleplugins
+  tags:
+    - aur
