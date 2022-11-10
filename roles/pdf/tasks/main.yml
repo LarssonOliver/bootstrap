@@ -12,3 +12,10 @@
     state: present
   tags:
     - pdfgrep
+
+- name: Install zathura
+  ansible.builtin.pacman:
+    name:
+      - zathura
+      - zathura-pdf-mupdf
+    state: present
