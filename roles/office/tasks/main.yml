@@ -13,3 +13,12 @@
   pacman:
     name: texlive-latexextra
     state: present
+
+- name: Install texlive additionals
+  ansible.builtin.pacman:
+    name:
+      - texlive-bibtexextra
+      - inkscape
+      - biber
+      - pygmentize
+    state: present
