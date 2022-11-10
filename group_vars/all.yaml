@@ -33,6 +33,7 @@ lsp_servers:
     - bash-language-server
     - shellcheck # Needed by bash-language-server
     - yaml-language-server
+    - texlab
 
 video_drivers:
   - intel-media-driver
