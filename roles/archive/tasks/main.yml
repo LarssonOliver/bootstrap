@@ -18,7 +18,16 @@
 
 - name: Install thunar
   pacman:
-    name: thunar
+    name: 
+      - thunar
+      - thunar-archive-plugin
     state: present
   tags:
     - thunar
+
+- name: Install file-roller
+  ansible.builtin.pacman:
+    name: file-roller
+    state: present
+  tags:
+    - file-roller
