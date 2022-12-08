@@ -35,6 +35,7 @@ lsp_servers:
     - yaml-language-server
     - texlab
     - pyright
+    - python-debugpy
 
 video_drivers:
   - intel-media-driver
