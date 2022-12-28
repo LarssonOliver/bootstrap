@@ -5,7 +5,7 @@
     dest: /home/{{ user.name }}/{{ dotfiles.destination }}
     accept_hostkey: true
     update: true
-    version: origin/{{ dotfiles.version }}
+    version: "{{ dotfiles.version }}"
   when: dotfiles is defined
   become: true
   become_user: "{{ user.name }}"
@@ -17,3 +17,18 @@
   when: dotfiles is defined
   become: true
   become_user: "{{ user.name }}"
+
+- name: Make sure ~/.shell_local_after exists.
+  ansible.builtin.lineinfile:
+    path: /home/{{ user.name }}/.shell_local_after
+    create: true
+    owner: "{{ user.name }}"
+    group: "{{ user.name }}"
+    line: "#!/usr/bin/sh"
+
+- name: Set local dotfile repository path.
+  ansible.builtin.lineinfile:
+    path: /home/{{ user.name }}/.shell_local_after
+    regexp: "^export LOCAL_DOTFILES_REPOSITORY="
+    line: "export LOCAL_DOTFILES_REPOSITORY=/home/{{ user.name }}/{{ dotfiles.destination }}"
+
