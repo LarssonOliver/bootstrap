@@ -24,3 +24,4 @@
 - ansible.builtin.import_tasks: sudo.yml
 - ansible.builtin.import_tasks: packages.yml
 - ansible.builtin.import_tasks: journal.yml
+- ansible.builtin.import_tasks: bootstrap.yml

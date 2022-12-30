@@ -1,0 +1,27 @@
+---
+- name: Clone bootstrap to destination
+  ansible.builtin.git:
+    repo: "{{ bootstrap.url }}"
+    dest: /home/{{ user.name }}/{{ bootstrap.destination }}
+    accept_hostkey: true
+    update: true
+    version: "{{ bootstrap.version }}"
+  when: bootstrap.url is defined and bootstrap.destination is defined
+  become: true
+  become_user: "{{ user.name }}"
+
+- name: Make sure ~/.shell_local_before exists.
+  ansible.builtin.lineinfile:
+    path: /home/{{ user.name }}/.shell_local_before
+    create: true
+    owner: "{{ user.name }}"
+    group: "{{ user.name }}"
+    line: "#!/usr/bin/sh"
+
+- name: Set local dotfile repository path.
+  ansible.builtin.lineinfile:
+    path: /home/{{ user.name }}/.shell_local_before
+    regexp: "^export LOCAL_BOOTSTRAP_REPOSITORY="
+    line: "export LOCAL_BOOTSTRAP_REPOSITORY=/home/{{ user.name }}/{{ bootstrap.destination }}"
+  when: bootstrap.destination is defined
+

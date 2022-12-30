@@ -31,4 +31,5 @@
     path: /home/{{ user.name }}/.shell_local_before
     regexp: "^export LOCAL_DOTFILES_REPOSITORY="
     line: "export LOCAL_DOTFILES_REPOSITORY=/home/{{ user.name }}/{{ dotfiles.destination }}"
+  when: dotfiles is defined
 

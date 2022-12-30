@@ -8,15 +8,20 @@ user:
     dir: log
     rotate: 8
 
+bootstrap:
+  url: https://github.com/larssonoliver/bootstrap
+  destination: dev/bootstrap
+  version: main
+    
 dotfiles:
   url: https://github.com/larssonoliver/dotfiles
-  version: bootstrap
   destination: dev/dotfiles
+  version: bootstrap
   install_script: install
 
 ssh:
   port: 22
-  enable_sshd: True
+  enable_sshd: true
 
 editors:
   pacman:
@@ -62,14 +67,14 @@ passwordless_sudo:
   - /usr/bin/openvpn*
 
 bluetooth:
-  disable: False
+  disable: false
 
 journal:
   max_size: 256M
 
 usbmount:
-  auto_mount: True
-  shared_mount: True
+  auto_mount: true
+  shared_mount: true
 
 fonts:
   pacman:
