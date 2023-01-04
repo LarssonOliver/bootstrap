@@ -49,6 +49,11 @@
     name: xautomation
     state: present
 
+- name: Install numlockx
+  ansible.builtin.pacman:
+    name: numlockx
+    state: present
+
 - name: Install arandr
   ansible.builtin.pacman:
     name: arandr
