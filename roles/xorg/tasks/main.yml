@@ -63,6 +63,7 @@
   ansible.builtin.pacman:
     name: "{{ video_drivers }}"
     state: present
+  when: video_drivers is defined
 
 - name: Add user to video group
   ansible.builtin.user:
