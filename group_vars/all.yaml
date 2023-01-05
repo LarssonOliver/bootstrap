@@ -16,7 +16,7 @@ bootstrap:
 dotfiles:
   url: https://github.com/larssonoliver/dotfiles
   destination: dev/dotfiles
-  version: bootstrap
+  version: main
   install_script: install
 
 ssh:
