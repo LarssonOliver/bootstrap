@@ -1,14 +1,16 @@
 ---
-- name: Clone bootstrap to destination
-  ansible.builtin.git:
-    repo: "{{ bootstrap.url }}"
-    dest: /home/{{ user.name }}/{{ bootstrap.destination }}
-    accept_hostkey: true
-    update: true
-    version: "{{ bootstrap.version }}"
-  when: bootstrap.url is defined and bootstrap.destination is defined
-  become: true
-  become_user: "{{ user.name }}"
+- block:
+    - name: Clone bootstrap to destination
+      ansible.builtin.git:
+        repo: "{{ bootstrap.url }}"
+        dest: /home/{{ user.name }}/{{ bootstrap.destination }}
+        accept_hostkey: true
+        update: true
+        version: "{{ bootstrap.version }}"
+      when: bootstrap.url is defined and bootstrap.destination is defined
+      become: true
+      become_user: "{{ user.name }}"
+  ignore_errors: true
 
 - name: Make sure ~/.shell_local_before exists.
   ansible.builtin.lineinfile:
