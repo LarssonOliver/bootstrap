@@ -32,16 +32,6 @@ editors:
   aur:
     - visual-studio-code-bin
 
-lsp_servers:
-  pacman:
-    - lua-language-server
-    - bash-language-server
-    - shellcheck # Needed by bash-language-server
-    - yaml-language-server
-    - texlab
-    - pyright
-    - python-debugpy
-
 video_drivers:
   - intel-media-driver
 
