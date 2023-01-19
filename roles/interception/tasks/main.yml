@@ -1,19 +1,24 @@
 ---
-- name: Install caps2esc
-  ansible.builtin.pacman:
-    name: interception-caps2esc
-    state: present
-
-- name: Push caps2esc udevmon config
-  ansible.builtin.template:
-    src: caps2esc.yaml.j2
-    dest: /etc/interception/udevmon.d/caps2esc.yaml
-    mode: 0644
-  notify:
-    - restart udevmon
-
 - name: Enable and start udevmon
   ansible.builtin.service:
     name: udevmon.service
-    enabled: true
-    state: started
+    enabled: false
+    state: stopped
+
+- name: Install caps2esc
+  ansible.builtin.pacman:
+    name: interception-caps2esc
+    state: absent
+
+# - name: Push caps2esc udevmon config
+#   ansible.builtin.template:
+#     src: caps2esc.yaml.j2
+#     dest: /etc/interception/udevmon.d/caps2esc.yaml
+#     mode: 0644
+
+- name: Remove udevmon config
+  ansible.builtin.file:
+    path: /etc/interception/udevmon.d/caps2esc.yaml
+    state: absent
+
+
