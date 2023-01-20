@@ -18,6 +18,7 @@
   ansible.builtin.pacman:
     name:
       - texlive-bibtexextra
+      - texlive-science
       - inkscape
       - biber
       - pygmentize
