@@ -78,6 +78,11 @@
   tags:
     - user
 
+- name: Configure faster keyboard repeats
+  template:
+    src: 30-keyboard-repeat.conf
+    dest: /etc/X11/xorg.conf.d/30-keyboard-repeat.conf
+
 - ansible.builtin.include_tasks: unclutter.yml
 - ansible.builtin.include_tasks: autorandr.yml
 - ansible.builtin.include_tasks: autocutsel.yml
