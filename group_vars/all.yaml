@@ -85,6 +85,7 @@ fonts:
     - ttf-liberation
     - ttf-opensans
     - ttf-ubuntu-font-family
+    - ttf-sourcecodepro-nerd
   aur:
     - ttf-bitstream-charter
     - ttf-cooper-hewitt
@@ -95,4 +96,3 @@ fonts:
     - ttf-oswald
     - ttf-quintessential
     - ttf-signika
-    - nerd-fonts-complete
