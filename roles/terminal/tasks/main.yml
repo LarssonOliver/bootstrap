@@ -1,5 +1,7 @@
 ---
 - name: Install alacritty
   ansible.builtin.pacman:
-    name: alacritty
+    name: 
+      - alacritty
+      - tmux
     state: present
